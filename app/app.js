@@ -33,14 +33,22 @@ app.controller('listCtrl', function ($scope, services) {
     
     $scope.showdetail_seat = function(seatid,selectdate){
     	services.getallseats().then(function(data){
-    		console.log(data);
+    		
             $scope.allseats = data.data;
         });
     	
     	var search_data = {'seatid': seatid, 'selectdate': selectdate};
     	services.getshowseats(search_data).then(function(data){
-            $scope.seatdetail = data.data;
+            $scope.seatdetail = {axx: data.data};
+    		//console.log($scope.seatdetail);
+            $scope.isExist = function(id){
+    	        return $scope.seatdetail.axx.map(function(type){
+    	        	return type.seat_no;
+    	        }).indexOf(id);
+    	    }
         });
+    	
+    	 
     };
 });
 

@@ -1,4 +1,4 @@
 <div ng-repeat="seatall in allseats">
-	<input type="checkbox" id="{{ seatall.id }}" style="">
+	<input type="checkbox" id="{{ seatall.id }}" ng-class="{'checked':isExist(seatall.id)!=-1}" ng-checked="isExist(seatall.id)!=-1" >
 	<span>{{ seatall.seat_name }}</span>
 </div><br>
