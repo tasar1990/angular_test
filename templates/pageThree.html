@@ -1,4 +1,5 @@
 <div ng-repeat="seatall in allseats">
-	<input type="checkbox" id="{{ seatall.id }}" ng-class="{'checked':isExist(seatall.id)!=-1}" ng-checked="isExist(seatall.id)!=-1" >
+	<input type="checkbox" id="{{ seatall.id }}" ng-class="{'checked':isExist(seatall.id)!=-1}" 
+	ng-checked="isExist(seatall.id)!=-1" ng-click="addSelection($event, seatall.id, seatall.seat_name )" >
 	<span>{{ seatall.seat_name }}</span>
 </div><br>

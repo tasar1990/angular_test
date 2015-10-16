@@ -45,7 +45,24 @@ app.controller('listCtrl', function ($scope, services) {
     	        	return type.seat_no;
     	        }).indexOf(id);
     	    }
-        });    	 
+        }); 
+    	$scope.items = [];
+    	$scope.addSelection = function($event, id, seatname){
+    		var checkbox = $event.target;
+    		var action = (checkbox.checked ? 'add' : 'remove');
+    		
+              $scope.items.push({ 
+                seatPlaceholder: seatname,
+                seatId: id,
+                modelName: 'sell.'+id+'.name',
+                modelPhone: 'sell.'+id+'.phone'
+              });
+    	};
+    };
+    
+    $scope.sellTickit= function(Sell){
+    	console.log(Sell);
+    	console.log('fgfgffgfgfgfgfgfg');
     };
 });
 
