@@ -1,7 +1,10 @@
 <form>
-<select ng-model="alltimings.selectone">
-	<option ng-repeat="show in allshow" value="{{show.id}}">{{show.show_times}}</option>
-</select>
-<input type="date" ng-model="alltimings.selectdate">
-<button ng-click="searchData(alltimings)" >Submit</button>
+	<select ng-model="alltimings.selectone">
+		<option ng-repeat="show in allshow" value="{{show.id}}">{{show.show_times}}</option>
+	</select>
+	
+	<input type="date" ng-model="alltimings.selectdate">
+	
+	<button ng-click="searchData(alltimings)" >Submit</button>
+	<input type="date" ng-model="alltimings.selectdate2">
 </form>

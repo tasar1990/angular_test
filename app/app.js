@@ -33,7 +33,6 @@ app.controller('listCtrl', function ($scope, services) {
     
     $scope.showdetail_seat = function(seatid,selectdate){
     	services.getallseats().then(function(data){
-    		
             $scope.allseats = data.data;
         });
     	
@@ -46,9 +45,7 @@ app.controller('listCtrl', function ($scope, services) {
     	        	return type.seat_no;
     	        }).indexOf(id);
     	    }
-        });
-    	
-    	 
+        });    	 
     };
 });
 
