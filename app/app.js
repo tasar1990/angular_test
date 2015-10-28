@@ -46,26 +46,23 @@ app.controller('listCtrl', function ($scope, services) {
     	        }).indexOf(id);
     	    }
         }); 
-    	$scope.items = [];
-    	$scope.modelName={ namefields: [] };
-        $scope.modelEmail={ emailfields: [] };
+    	//$scope.items = [];
+    	$scope.items={ seatPlaceholder: [],seatId: [],namefields: [],emailfields: []  };
+    	
     	$scope.addSelection = function($event, id, seatname){
     		var checkbox = $event.target;
     		var action = (checkbox.checked ? 'add' : 'remove');
     		
-              $scope.items.push({ 
-                seatPlaceholder: seatname,
-                seatId: id
-              });
-              
-              $scope.modelName.push('');
-              $scope.modelEmail.push('');
+              $scope.items.seatPlaceholder.push(seatname);
+              $scope.items.seatId.push(id);
+              $scope.items.namefields.push('');
+              $scope.items.emailfields.push('');
+              console.log($scope.items);
     	};
     };
     
-    $scope.sellTickit= function(sell){
-    	console.log(sell);
-    	console.log('fgfgffgfgfgfgfgfg');
+    $scope.sellTickit= function(items){
+    	console.log(items);
     };
 });
 
