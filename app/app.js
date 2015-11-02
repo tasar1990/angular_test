@@ -11,6 +11,9 @@ app.factory("services", ['$http', function($http) {
     obj.getmovies = function(alltimings){
         return $http.post(serviceBase + 'movies',alltimings);
     }
+    obj.bookseats = function(items){
+        return $http.post(serviceBase + 'seatsbook',items);
+    }
     obj.getshowseats = function(search_data){
         return $http.get(serviceBase + 'showseats?moveid='+search_data['seatid']+'&showdate='+search_data['selectdate']);
     }
@@ -49,7 +52,7 @@ app.controller('listCtrl', function ($scope, services) {
 	    	    }
 	        }); 
 	    	//$scope.items = [];
-	    	$scope.items={ seatPlaceholder: [],seatId: [],namefields: [],emailfields: []  };
+	    	$scope.items={ seatPlaceholder: [],seatId: [],namefields: [],emailfields: [],movie: [],bdate: [] };
 	    	
 	    	$scope.addSelection = function($event, id, seatname){
 	    		var checkbox = $event.target;
@@ -57,19 +60,19 @@ app.controller('listCtrl', function ($scope, services) {
 	    		
 	              $scope.items.seatPlaceholder.push(seatname);
 	              $scope.items.seatId.push(id);
+	              $scope.items.movie.push(show_time);
+	              $scope.items.bdate.push(booking_date);
 	              $scope.items.namefields.push('');
 	              $scope.items.emailfields.push('');
 	              //console.log($scope.items);
 	    	};
 	    	
 	    	$scope.sellTickit= function(items){
-//	        	console.log(items);
-//	        	console.log(show_time);
-//	        	console.log(booking_date);
-//	        	console.log(search_data);
-	    		angular.forEach(items, function(value, key) {
-	    			console.log(key + ': ' + value);
-	    		});
+	        	console.log(items);
+	        	
+//	    		angular.forEach(items, function(value, key) {
+//	    			console.log(key + ': ' + value);
+//	    		});
 	        };
 	    };
     };

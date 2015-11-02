@@ -1,10 +1,10 @@
 <form>
 <div ng-repeat="item in items.seatPlaceholder track by $index">
 	<h4 >{{ items.seatPlaceholder[$index] }}</h4>
-	<input type="text" placeholder="Enter name" ng-model="items.namefields[$index]">
+	<input type="text" placeholder="Enter name" ng-model="item.namefields[$index]">
 	 
-	<input type="text" placeholder="Enter Phone No" ng-model="items.emailfields[$index]"> 
+	<input type="text" placeholder="Enter Phone No" ng-model="item.emailfields[$index]"> 
 </div>
-	<button ng-click="sellTickit(items)" >Submit</button>
+	<button ng-click="sellTickit(item)" >Submit</button>
 </form>
 <pre>{{ item | json }}</pre>
